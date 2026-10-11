@@ -32,3 +32,12 @@ app.post('/test', (req, res) => {
     type: typeof req.body
   });
 });
+
+app.put('/tasks/:id', (req, res) => {
+  res.json({
+    received: req.body, 
+    params: req.params,
+    type: typeof req.body,
+    typeofparams: typeof req.params.id
+  })
+})
