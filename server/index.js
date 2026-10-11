@@ -18,26 +18,23 @@ server.on("error", (err) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("Get method working");
-});
+// PUT method for id placeholder
 
-app.get("/hehe", (req, res) => {
-  res.send("Hehe sent back");
-});
-
-app.post('/test', (req, res) => {
+app.put("/tasks/:id", (req, res) => {
   res.json({
-    received: req.body, 
-    type: typeof req.body
+    reqbody: req.body,
   });
 });
 
-app.put('/tasks/:id', (req, res) => {
-  res.json({
-    received: req.body, 
-    params: req.params,
-    type: typeof req.body,
-    typeofparams: typeof req.params.id
-  })
-})
+const tasks = [
+  { id: 1, title: "buy milk", done: false },
+  {
+    id: 2,
+    title: "make tea",
+    done: false,
+  },
+];
+
+const matchingTask = tasks.find((item) => item.id === 2);
+
+console.log(matchingTask);
