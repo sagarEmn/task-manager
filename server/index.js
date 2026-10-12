@@ -21,20 +21,25 @@ server.on("error", (err) => {
 // PUT method for id placeholder
 
 app.put("/tasks/:id", (req, res) => {
+  const convertedID = Number(req.params.id);
+  console.log("ConvertedID", convertedID);
+  console.log(`typeof convertedID: ${typeof convertedID}`);
+
   res.json({
-    reqbody: req.body,
+    "req.body": req.body,
+    convertedID: convertedID
   });
 });
 
-const tasks = [
-  { id: 1, title: "buy milk", done: false },
-  {
-    id: 2,
-    title: "make tea",
-    done: false,
-  },
-];
+// const tasks = [
+//   { id: 1, title: "buy milk", done: false },
+//   {
+//     id: 2,
+//     title: "make tea",
+//     done: false,
+//   },
+// ];
 
-const matchingTask = tasks.find((item) => item.id === 2);
+// const matchingTask = tasks.find((item) => item.id === 2);
 
-console.log(matchingTask);
+// console.log(matchingTask);
